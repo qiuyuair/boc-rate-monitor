@@ -1,4 +1,4 @@
-name = "boc-rate-monitor"
+name = "currency"
 main = "workers.js"
 compatibility_date = "2024-06-01"
 
