@@ -162,13 +162,17 @@ async function sendTelegram(env, text) {
     console.error("TG_BOT_TOKEN or TG_CHAT_ID not set");
     return;
   }
+  const body = {
+    chat_id: chatId,
+    text,
+  };
+  if (env.TG_TOPIC_ID) {
+    body.message_thread_id = env.TG_TOPIC_ID;
+  }
   const url = `https://api.telegram.org/bot${token}/sendMessage`;
   const res = await fetch(url, {
     method: "POST",
-    body: new URLSearchParams({
-      chat_id: chatId,
-      text,
-    }),
+    body: new URLSearchParams(body),
   });
   if (!res.ok) {
     console.error("sendTelegram failed:", res.status, await res.text());

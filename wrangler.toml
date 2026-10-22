@@ -10,6 +10,7 @@ compatibility_date = "2024-06-01"
 # 在 Dashboard 或 wrangler secret 中配置：
 # TG_BOT_TOKEN
 # TG_CHAT_ID
+# TG_TOPIC_ID（可选，群组话题 thread id）
 
 [triggers]
 crons = ["0 * * * *"]
